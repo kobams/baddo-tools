@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="データと条件を入力すると自動的にチーム分けを行ってくれるツールです。">
+    <link rel="stylesheet" href="css/style.css">
+    <title>チーム分け</title>
+</head>
+
+<body>
+    <h1 class="title">チーム分け</h1>
+    <div class="content">
+
+        <div class="block">
+            <h3>このチーム分けツールは・・・</h3>
+            <div class="indent"><p>スポーツなどの「強さ」が平均的になるようにチーム分けを行うツールです。<br>さらに、「性別」や「学年」も平均的になるように条件を追加することもできます。</p></div>
+        </div>
+
+        <div class="block">
+            <h2>データ入力</h2>
+            <ol>
+                <li>
+                    <div class="container2">
+                        <div>テンプレートファイル(<a href="example.csv">example.csv</a>)にデータを入力してファイルをアップロードしてください。</div>
+                        <input type="file" id="csvfile" class="item2">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="container2">
+                        <div>チーム数を選択してください。</div>
+                        <div class="item2">
+                            <select name="num" id="teamnum">
+                                <option value="">-</option>
+                                <script>
+                                    for(var i = 2; i <= 10; i++) {
+                                        document.write('<option value="' + i + '">' + i + '</option>');
+                                    }
+                                </script>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="container2">
+                        <div>平均的にする条件を選択してください。</div>
+                        <div class="item2 container3">
+                            <div><input type="checkbox" id="gen">性別</div>
+                            <div class="item3"><input type="checkbox" id="gre">学年</div>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+            <p><button type="button" onclick="execute()" id="button">チームを作る</button></p>
+        </div>
+
+        <div class="block2">
+            <h2>結果</h2>
+            <div class="container" id="output"></div>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="inputcsv.js"></script>
+    <script type="text/javascript" src="teamdiv2.js"></script>
+</body>
+
+</html>
