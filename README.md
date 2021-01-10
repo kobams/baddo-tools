@@ -1,5 +1,5 @@
 # badmintonteam
-試合のチーム分けを自動で行えるようにしたい  
+チーム分けを自動で行うことのできるWebツールです。
 URL:https://kobaym.github.io/team-badminton/
 
 数値(強さなど)、性別、学年(年齢)のそれぞれが平均化されるようにチーム分けを行うことができます。  
