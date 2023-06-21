@@ -2,5 +2,5 @@
 チーム分けを自動で行うことのできるWebツールです。  
 URL : https://kobams.github.io/baddo-tools/
 
-1.チーム分け
+1.チーム分け  
 2.ペア決め
