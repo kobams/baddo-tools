@@ -1,1 +1,76 @@
-<!--test-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="条件を入力すると自動でペア決めをしてくれるツール">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>ペア決め</title>
+</head>
+
+<body>
+    <h1 class="title">ペア決め</h1>
+    <div class="content">
+
+        <div class="block">
+            <h3>このペア決めツールは・・・</h3>
+            <div class="indent">
+                <p>条件を入力すると自動でペア決めをしてくれるツール。</p>
+            </div>
+        </div>
+
+        <div class="block">
+            <h2>データ入力</h2>
+            <ol>
+                <li>
+                    <div class="container2">
+                        <div>チームの人数</div>
+                        <div class="item2">
+                            <select name="num" id="team_num">
+                                <option disabled selected>-</option>
+                                <script>
+                                    for(var i = 2; i <= 20; i++) {
+                                        document.write('<option value="' + i + '">' + i + '</option>');
+                                    }
+                                </script>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="container2">
+                        <div>ペア数</div>
+                        <div class="item2">
+                            <select name="num" id="pair_num" disabled>
+                                <option disabled selected>-</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="container2">
+                        <div>試合数</div>
+                        <div class="item2">
+                            <select name="num" id="match_num" disabled>
+                                <option disabled selected>-</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+            <p><button type="button" onclick="execute()" id="button">ペアを作る</button></p>
+        </div>
+
+        <div class="block2">
+            <h2>結果</h2>
+            <div class="container" id="output"></div>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="input.js"></script>
+</body>
+
+</html>
