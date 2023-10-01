@@ -1,5 +1,5 @@
 # baddo
-チーム分けを自動で行うことのできるWebツールです。  
+自動化ツール  
 URL : https://kobams.github.io/baddo-tools/
 
 1.チーム分け  
