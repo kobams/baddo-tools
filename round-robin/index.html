@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="条件を入力すると総当たり戦の組み合わせを作成ツール">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>総当たり組み合わせ</title>
+</head>
+
+<body>
+    <h1 class="title">総当たり組み合わせ</h1>
+    <div class="content">
+
+        <div class="block">
+            <h3>このツールは・・・</h3>
+            <div class="indent">
+                <h4>条件を入力すると自動で総当たり戦の組み合わせを作成するツール</h4>
+            </div>
+        </div>
+
+        <div class="block">
+            <h2>条件入力</h2>
+            <!-- <p><a onclick="window.location.reload(true);" class="reload"><button>入力クリア</button></a> -->
+            <ol>
+                <li>
+                    <div class="container2">
+                        <div>チーム数</div>
+                        <div class="item2">
+                            <select name="num" id="teamNum">
+                                <option disabled selected>-</option>
+                                <script>
+                                    for(var i = 2; i <= 20; i++) {
+                                        document.write('<option value="' + i + '">' + i + '</option>');
+                                    }
+                                </script>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+            <p><button type="button" onclick="makeCombination()" id="button">組み合わせ作成</button></p>
+        </div>
+
+        <div class="block2">
+            <h2>結果</h2>
+            <div class="container" id="output"></div>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="input.js"></script>
+    <script type="text/javascript" src="round-robin.js"></script>
+</body>
+
+</html>

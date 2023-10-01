@@ -14,20 +14,23 @@
     <div class="content">
 
         <div class="block">
-            <h3>このペア決めツールは・・・</h3>
+            <h3>このツールは・・・</h3>
             <div class="indent">
-                <p>条件を入力すると自動でペア決めをしてくれるツール。</p>
+                <h4>条件を入力すると自動でペア決めをしてくれるツール</h4>
+                <p>・同じ組み合わせはなし（条件入力で同じ組み合わせができるものは選択できない）
+                <br>・一人当たりの出場数やダブりの差は最小限</p>
             </div>
         </div>
 
         <div class="block">
-            <h2>データ入力</h2>
+            <h2>条件入力</h2>
+            <!-- <p><a onclick="window.location.reload(true);" class="reload"><button>入力クリア</button></a> -->
             <ol>
                 <li>
                     <div class="container2">
-                        <div>チームの人数</div>
+                        <div>チーム人数</div>
                         <div class="item2">
-                            <select name="num" id="team_num">
+                            <select name="num" id="memberNum">
                                 <option disabled selected>-</option>
                                 <script>
                                     for(var i = 2; i <= 20; i++) {
@@ -41,9 +44,9 @@
 
                 <li>
                     <div class="container2">
-                        <div>ペア数</div>
+                        <div>1試合で必要なペア数</div>
                         <div class="item2">
-                            <select name="num" id="pair_num" disabled>
+                            <select name="num" id="pairNum" disabled>
                                 <option disabled selected>-</option>
                             </select>
                         </div>
@@ -54,14 +57,14 @@
                     <div class="container2">
                         <div>試合数</div>
                         <div class="item2">
-                            <select name="num" id="match_num" disabled>
+                            <select name="num" id="matchNum" disabled>
                                 <option disabled selected>-</option>
                             </select>
                         </div>
                     </div>
                 </li>
             </ol>
-            <p><button type="button" onclick="execute()" id="button">ペアを作る</button></p>
+            <p><button type="button" onclick="makePair()" id="button">ペアを作る</button></p>
         </div>
 
         <div class="block2">
@@ -71,6 +74,7 @@
 
     </div>
     <script type="text/javascript" src="input.js"></script>
+    <script type="text/javascript" src="pair.js"></script>
 </body>
 
 </html>

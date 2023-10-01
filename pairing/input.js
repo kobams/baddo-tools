@@ -1,58 +1,64 @@
-var team_num = 0;
-var pair_num = 0;
-var match_num = 0;
+let memberNum = 0;
+let pairNum = 0;
+let matchNum = 0;
 
-var combi;   //全ペア数（nC2）
-var min_pair_eachMatch;   //1試合あたりの最小ペア数
+let total_combi;   //全ペア数（nC2）
+let min_pair;   //1試合あたりの最小ペア数
+let max_pair;
+let max_match;
 
-var team_numInput = document.getElementById("team_num");
-var pair_numInput = document.getElementById("pair_num");
-var match_numInput = document.getElementById("match_num");
+let Input_memberNum = document.getElementById("memberNum");
+let Input_pairNum = document.getElementById("pairNum");
+let Input_matchNum = document.getElementById("matchNum");
 
-var btn = document.getElementById("button");
-
-team_numInput.onchange = function(){   //チーム人数が選択されたら
-    team_num = Number(team_numInput.value);
-    combi = team_num * (team_num - 1) / 2;
-    min_pair_eachMatch = Math.ceil(team_num / 2);
-    redisp_pair();
-    redisp_match();
+//チーム人数が選択されたら
+Input_memberNum.onchange = function(){
+    memberNum = Number(Input_memberNum.value);
+    total_combi = memberNum * (memberNum - 1) / 2;
+    min_pair = Math.ceil(memberNum / 2);
+    update_pair();
+    update_match();
+    Input_memberNum.disabled = true;
+    Input_pairNum.disabled = false;
+    Input_matchNum.disabled = false;
 };
 
-pair_numInput.onchange = function(){   //ペア数が選択されたら
-    pair_num = Number(pair_numInput.value);
-    redisp_match();
+//ペア数が選択されたら
+Input_pairNum.onchange = function(){
+    pairNum = Number(Input_pairNum.value);
+    if(matchNum == 0) update_match();
+    Input_pairNum.disabled = true;
 };
 
-match_numInput.onchange = function(){   //試合数が選択されたら
-    match_num = Number(match_numInput.value);
-    redisp_pair();
+//試合数が選択されたら
+Input_matchNum.onchange = function(){
+    matchNum = Number(Input_matchNum.value);
+    if(pairNum == 0) update_pair();
+    Input_matchNum.disabled = true;
 };
 
-function redisp_pair() {
-    for(var i = pair_numInput.length - 1; i >= 1; i--) pair_numInput.remove(i);
-    var max;
-    if(match_num == 0) max = combi;
-    else max = Math.floor(combi / match_num);
-    for(var i = min_pair_eachMatch; i <= combi; i++) {
+//ペア数プルダウンの更新
+function update_pair() {
+    for(var i = Input_pairNum.length - 1; i >= 1; i--) Input_pairNum.remove(i);
+    if(matchNum == 0) max_pair = total_combi;
+    else max_pair = Math.floor(total_combi / matchNum);
+    for(var i = min_pair; i <= max_pair; i++) {
         var option = document.createElement('option');
         option.value = i;
         option.innerHTML = i;
-        pair_numInput.appendChild(option);
+        Input_pairNum.appendChild(option);
     }
-    pair_numInput.disabled = false;
 }
 
-function redisp_match() {
-    for(var i = match_numInput.length - 1; i >= 1; i--) match_numInput.remove(i);
-    var max;
-    if(pair_num == 0) max = Math.floor(combi / min_pair_eachMatch);
-    else max = Math.floor(combi / pair_num);
-    for(var i = 1; i <= max; i++) {
+//試合数プルダウンの更新
+function update_match() {
+    for(var i = Input_matchNum.length - 1; i >= 1; i--) Input_matchNum.remove(i);
+    if(pairNum == 0) max_match = Math.floor(total_combi / min_pair);
+    else max_match = Math.floor(total_combi / pairNum);
+    for(var i = 1; i <= max_match; i++) {
         var option = document.createElement('option');
         option.value = i;
         option.innerHTML = i;
-        match_numInput.appendChild(option);
+        Input_matchNum.appendChild(option);
     }
-    match_numInput.disabled = false;
 }
