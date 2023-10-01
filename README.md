@@ -1,4 +1,4 @@
-# baddo
+# バド同
 自動化ツール  
 URL : https://kobams.github.io/baddo-tools/
 
